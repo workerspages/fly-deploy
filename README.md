@@ -53,31 +53,28 @@ app = "vaultwarden-webdav"
 primary_region = "sin"
 
 [build]
-image = "ghcr.io/workerspages/vaultwarden-webdav:latest"
+  image = "ghcr.io/workerspages/vaultwarden-webdav:latest"
 
 [env]
-DASHBOARD_ADMIN_USER = "admin"
-SIGNUPS_ALLOWED = "false"
-TZ = "Asia/Shanghai"
-WEBSOCKET_ENABLED = "true"
+  TZ = "Asia/Shanghai"
 
 [http_service]
-auto_start_machines = true
-auto_stop_machines = true
-force_https = true
-internal_port = 80
-min_machines_running = 0
-processes = [ "app" ]
+  internal_port = 80
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ["app"]
 
 [[mounts]]
-destination = "/data"
-source = "vw_data"
+  source = "vw_data"
+  destination = "/data"
 
-[[vm]]
-cpus = 1
-memory = "256mb"
-memory_mb = 256
-
+[vm]
+  cpu_kind = "shared"
+  cpus = 1
+  memory = "256mb"
+  swap_size_mb = 512  # 增加 Swap 防止崩溃
 ```
 
 *(注意：部署时 GitHub Actions 会以这里的 `app`、`primary_region` 和 `source` 为准，请确保它们与你在 GitHub Secrets 中设置的值保持逻辑一致，尽管部署流会优先尝试用 Secrets 创建基础设施。)*
