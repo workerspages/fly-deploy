@@ -1,4 +1,4 @@
-app = "vaultwarden0222"  # 应用名称
+app = "xxxxxxx"  # 应用名称
 primary_region = "ord"  # 数据中心，比如 hkg、nrt、sin
 
 [build]
