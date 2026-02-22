@@ -2,7 +2,7 @@ app = "Vaultwarden0222"  # 应用名称
 primary_region = "ord"  # 数据中心，比如 hkg、nrt、sin
 
 [build]
-  image = "eooce/nodejs:latest"  # 镜像地址
+  image = "ghcr.io/workerspages/nodejs:latest"  # 镜像地址
 
 [http_service]
   internal_port = 3000
