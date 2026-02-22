@@ -4,14 +4,6 @@ primary_region = "ord"  # 数据中心，比如 hkg、nrt、sin
 [build]
   image = "eooce/nodejs:latest"  # 镜像地址
 
-[env]
-  NAME = "Fly"  
-  NEZHA_SERVER = ""
-  NEZHA_PORT = ""
-  NEZHA_KEY = ""
-  ARGO_DOMAIN = ""
-  ARGO_AUTH = ""
-
 [http_service]
   internal_port = 3000
   force_https = true
